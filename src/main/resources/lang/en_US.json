@@ -3643,7 +3643,8 @@
     },
     "cauldron": {
       "cauldron": {
-        "gui_name": "<dark_grey>Cauldron</dark_grey>",
+        "default_title": "<dark_grey>Cauldron</dark_grey>",
+        "gui_name": "<title>",
         "items": {
           "start": {
             "enabled": {
@@ -3659,6 +3660,14 @@
                 "<grey>- <gold>Campfire</gold> <grey>(<aqua>Soul</aqua>/<yellow>Normal</yellow>)</grey>",
                 "<grey>- <gold>Signal Fire <grey>(Hay Bale)</grey>"
               ]
+            }
+          },
+          "indicator":{
+            "water": {
+              "name": "<blue><level></blue>"
+            },
+            "lava": {
+              "name": "<gold><level></gold>"
             }
           },
           "signal_fire": {

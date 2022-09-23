@@ -58,6 +58,7 @@ import me.wolfyscript.utilities.api.inventory.gui.GuiHandler;
 import me.wolfyscript.utilities.api.inventory.gui.GuiUpdate;
 import me.wolfyscript.utilities.api.inventory.gui.GuiWindow;
 import me.wolfyscript.utilities.util.NamespacedKey;
+import me.wolfyscript.utilities.util.inventory.ItemUtils;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -88,10 +89,10 @@ public class CustomRecipeCauldron extends CustomRecipe<CustomRecipeCauldron> {
         this.canCookInWater = node.path("water").asBoolean(true);
         this.campfire = this.requiresLitCampfire = node.path("fire").asBoolean(true);
         this.additionalResults = new Result[] { new Result(), new Result(), new Result() };
-        JsonNode ingredientsNode = node.path("ingredient");
         this.ingredients = new ArrayDeque<>();
+        JsonNode ingredientsNode = node.path("ingredients");
         if (ingredientsNode.isObject()) {
-            ItemLoader.loadIngredient(node.path("ingredients")).getChoices().stream().map(customItem -> {
+            ItemLoader.loadIngredient(ingredientsNode).getChoices().stream().map(customItem -> {
                 Ingredient ingredient = new Ingredient(customItem.getApiReference());
                 ingredient.buildChoices();
                 return ingredient;
@@ -294,6 +295,10 @@ public class CustomRecipeCauldron extends CustomRecipe<CustomRecipeCauldron> {
             if (!ingredient.isAllowEmpty()) {
                 return false;
             }
+        }
+        if (inputI < items.size()) {
+            // Make sure that there are no input items left.
+            return items.subList(inputI, items.size()).stream().allMatch(ItemUtils::isAirOrNull);
         }
         return true;
     }

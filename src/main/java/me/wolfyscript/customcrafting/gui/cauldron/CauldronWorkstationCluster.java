@@ -36,6 +36,7 @@ public class CauldronWorkstationCluster extends CCCluster {
 
     public static final String KEY = "cauldron";
     public static final NamespacedKey CAULDRON_MAIN = new NamespacedKey(KEY, "cauldron");
+    public static final NamespacedKey CAULDRON_RESULT = new NamespacedKey(KEY, "result");
 
     public CauldronWorkstationCluster(InventoryAPI<CCCache> inventoryAPI, CustomCrafting customCrafting) {
         super(inventoryAPI, KEY, customCrafting);

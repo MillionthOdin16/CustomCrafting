@@ -73,12 +73,6 @@ data:
   bukkit_version: 0
   # Do not change this number! It is used to update configs of recipes and items to new formats!
   version: 0
-  auto_save:
-    # Interval in minutes to save data.
-    # Currently, used to save the data of the placed cauldrons with campfires underneath and the contained items and recipes.
-    interval: 30
-    # Save message that is printed into the console.
-    message: true
 
 crafting_table:
   # If the advanced crafting table is enabled or not.
@@ -107,6 +101,18 @@ recipe_book:
     stonecutter: "<translate:recipe.type.stonecutter>"
     grindstone: "<translate:recipe.type.grindstone>"
     brewing_stand: "<translate:recipe.type.brewing_stand>"
+
+workstation:
+  cauldron:
+    sound:
+      valid_recipe:
+      start:
+      finished:
+    gui:
+      main_menu:
+        title: "<translate:inventories.cauldron.cauldron.default_title>"
+      result_menu:
+        title: "<translate:inventories.cauldron.cauldron.default_title>"
 
 custom_items:
   # Use this option if you have saved CustomItems and your players got them in their inventory. Each time a Player joins the server it will try to update the CustomItems.
